@@ -1,0 +1,82 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeFile="Site.Master.vb" Inherits="Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    RNA rental Application
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/NewApplicant.aspx" Text="New Applicant Screen" 
+                            Value="New Applicant Screen">
+                            <asp:MenuItem NavigateUrl="~/NewApplicant.aspx" Text="Screening Step 1 (1-7)" 
+                                Value="Screening Step 1 (1-7)"></asp:MenuItem>
+<asp:MenuItem Text="Screening Step 2 (3&amp;4)" Value="Screening Step 2 (3&amp;4)" 
+                                NavigateUrl="~/Applicant17.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/FindCompatibleProperties.aspx" Text="Find A Property Step 3" 
+                                Value="Find A Property">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Complete811Screening.aspx" 
+                                Text="Screening Step 4 (8-11)" Value="Screening Step 2 (8-11)">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/ScreeningFormStatus.aspx" Text="Review Applications" 
+                            Value="Review Applications">
+                            <asp:MenuItem NavigateUrl="~/ScreeningFormStatus.aspx" 
+                                Text="Update Status of Applications" Value="Update Status of Applications">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ApplicationMaintenance.aspx" 
+                                Text="Update Status of Applicant" Value="Update Status of Applicant">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/LeaseInput.aspx" Text="Create Lease" 
+                            Value="Create Lease"></asp:MenuItem>
+                        <asp:MenuItem Text="Administration" 
+                            Value="Administration">
+                            <asp:MenuItem NavigateUrl="~/AdministrativeManagement.aspx" 
+                                Text="App and Lease Approval" Value="Administrative Management">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/PropertyManagement.aspx" Text="Properties" 
+                                Value="Properties"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

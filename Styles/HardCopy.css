@@ -1,0 +1,15 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+.documentTop
+{
+    text-align: left;
+    background:white;
+    margin-left:0.52in;
+    margin-bottom: .17in;
+    margin-right: .5in;
+    margin-top: 0.24in;
+    height: 11in;
+    width: 8.5in;
+    font-size: x-small;
+}
